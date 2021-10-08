@@ -14,17 +14,24 @@
 """
 
 import os
-from netmiko import ConnectHandler
+from netmiko import (
+    ConnectHandler,
+    NetmikoTimeoutException,
+    NetmikoAuthenticationException,
+)
 import yaml
 from parse_command import parse_command_dynamic
 
 
 def send_and_parse_show_command(device_dict, command, template_path, index='index'):
     attributes = {'Command': command, 'Vendor': device_dict['device_type']}
-    with ConnectHandler(**device_dict) as ssh:
-        ssh.enable()
-        output = ssh.send_command(command)
-        parsed_data = parse_command_dynamic(
-            output, attributes, templ_path=template_path, index_file=index
-        )
+    try:
+        with ConnectHandler(**device_dict) as ssh:
+            ssh.enable()
+            output = ssh.send_command(command)
+            parsed_data = parse_command_dynamic(
+                output, attributes, templ_path=template_path, index_file=index
+            )
+    except (NetmikoTimeoutException, NetmikoAuthenticationException) as error:
+        print(error)
     return parsed_data
