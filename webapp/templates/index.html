@@ -1,33 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Xabbix</title>
-    <link href="static/css/style.css" rel="stylesheet" type="text/css">
-</head>
-
-<body>
-
-    <div class="container">
-        <div class="header">
-            <h2 class="text-muted">Xabbix</h2>
+{% extends "base.html" %}
+{% block content %}
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="container">
+	
+    <div class="row">
+		<div class="col-md-9" ></div>
+        <div class="col-md-3">
+            <h4>Оборудование:</h4>
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-outline-success btn-lg btn-block">R1 model: Cisco 7201</button>
+                    <button type="button" class="btn btn-outline-warning btn-lg btn-block">R2 model: Cisco 2901</button>
+                    <button type="button" class="btn btn-outline-danger btn-lg btn-block">R3 model: Cisco 881</button>
+                </div>
         </div>
+	</div>
 
-        <div class="buttons">
-            <p><a class="button1" href="logIn" role="button">Settings</a>
-            </p>
-        </div>
-
-        <div class="buttons">
-            <p><a class="button1" href="monitoring" role="button">Monitoring</a>
-            </p>
-        </div>
-
-        <footer class="footer">
-            <p>&copy; Название компании</p>
-        </footer>
-
-    </div>
-</body>
-
-</html>
+{% endblock %}
