@@ -20,5 +20,20 @@ def showMonitoring():
     title = 'Monitoring'
     return render_template('monitoring.html', page_title=title)
 
+@app.route('/r1')
+def r1():
+    title = 'R1 model: Cisco 7201'
+    return render_template('r1.html', page_title=title)
+
+@app.route('/r2')
+def r2():
+    title = 'R2 model: Cisco 2901'
+    return render_template('r2.html', page_title=title)
+
+@app.route('/r3')
+def r3():
+    title = 'R3 model: Cisco 881'
+    return render_template('r3.html', page_title=title)
+
 if __name__=="__main__":
     app.run(debug=True)
