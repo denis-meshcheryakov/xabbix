@@ -1,11 +1,22 @@
-from flask import Flask, render_template, request, json
+import os
+import yaml
+from flask import Flask, render_template
+
+from send_received_cmd_form import send_received_cmd
+
+SECRET_KEY = os.urandom(32)
+
+
+with open("devices.yaml") as f:
+        devices = yaml.safe_load(f)
 
 app = Flask(__name__)
+
+app.config['SECRET_KEY'] = SECRET_KEY
 
 #Делаем переход на главную страницу
 @app.route('/')
 def index():
-    title = 'Home'
     return render_template('index.html')
 
 #Делаем переход на страницу авторизации
@@ -20,20 +31,29 @@ def showMonitoring():
     title = 'Monitoring'
     return render_template('monitoring.html', page_title=title)
 
-@app.route('/r1')
+# Страница роутера R1
+@app.route('/r1', methods=["POST", "GET"])
 def r1():
     title = 'R1 model: Cisco 7201'
-    return render_template('r1.html', page_title=title)
-
-@app.route('/r2')
+    device=devices[0]
+    command_form = send_received_cmd(device)
+    return render_template('r1.html', page_title=title, form=command_form)
+    
+# Страница роутера R2
+@app.route('/r2', methods=["POST", "GET"])
 def r2():
     title = 'R2 model: Cisco 2901'
-    return render_template('r2.html', page_title=title)
-
-@app.route('/r3')
+    device=devices[1]
+    command_form = send_received_cmd(device)
+    return render_template('r2.html', page_title=title, form=command_form)
+# Страница роутера R3
+@app.route('/r3', methods=["POST", "GET"])
 def r3():
     title = 'R3 model: Cisco 881'
-    return render_template('r3.html', page_title=title)
+    device=devices[2]
+    command_form = send_received_cmd(device)
+    return render_template('r3.html', page_title=title, form=command_form)
 
 if __name__=="__main__":
     app.run(debug=True)
+    

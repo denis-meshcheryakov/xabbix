@@ -1,9 +1,51 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Введите show команду" aria-label="send show command" aria-describedby="basic-addon2">
-    <div class="input-group-append">
-      <button class="btn btn-outline-secondary" type="button">Кнопка</button>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="container">
+    <div class="row">
+		<div class="col-md-6" ></div>
+        <div class="col-md-6">
+            <form action="" method="POST">
+                <div class="form-group">
+                    {{ form.hidden_tag() }}
+                    {{ form.command.label() }}
+                    {{ form.command() }}
+                    <div class="row">
+                        <div class="col-md-7" >
+                            {{ form.command_type.label() }}
+                            {{ form.command_type() }}
+                        </div>
+                        <div class="col-md-5">
+                            
+                            {{ form.submit }}
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6" ></div>
+        <div class="col-md-6">
+            <form>
+                <div class="form-group">
+                    <textarea class="form-control form-control-sm" id="exampleFormControlTextarea1" rows="8">
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                        
+                        {% endif %}
+                        {% endwith %}
+                    </textarea>
+                    
+                </div>
+            </form>
+        </div>
+        </div>
+</div>
 {% endblock %}
