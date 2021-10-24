@@ -23,6 +23,6 @@ def send_and_parse_command_parallel(devices, command, templates_path, limit=3):
 if __name__ == "__main__":
     with open('devices.yaml') as f:
         devices = yaml.safe_load(f)
-    command = 'show cdp neighbors detail'
+    command = 'show cdp neighbors det'
     path_dir = f'{os.getcwd()}/templates'
     pprint(send_and_parse_command_parallel(devices, command, path_dir))
