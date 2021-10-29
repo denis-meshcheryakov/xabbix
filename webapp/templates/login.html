@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Xabbix</title>
-        <link href="static/css/style.css" rel="stylesheet" type="text/css">
-    </head>
-
-    <body>
-
-        <div class="container">
-            <div class="header">
-                <h2 class="text-muted">Xabbix</h2>
-            </div>
-
+{% extends "base.html" %}
+{% block content %}
+       
+    <div class="row">
+        <div class="col-4">
             <div class="loginform">
                 <h3>User name</h3>
                 <form class="form-signin">
@@ -22,13 +13,11 @@
                 <button id="btnSignUp" class="button1" type="button">Log in</button>
                 </form>
             </div>
-
-
-
-            <footer class="footer">
-                <p>&copy; Название компании</p>
-            </footer>
-
         </div>
-    </body>
-</html>
+
+        <div class="col-8">
+        
+        </div>
+        </div>
+
+{% endblock %}
