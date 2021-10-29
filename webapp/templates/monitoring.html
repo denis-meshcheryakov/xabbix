@@ -1,28 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Xabbix</title>
-        <link href="static/css/style.css" rel="stylesheet" type="text/css">
-    </head>
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    
+    <div class="monitoring">
+            <object type="image/svg+xml" data="webapp/pictures/monitor.svg" width="200" height="200" >
+                Your browser does not support SVG
+            </object>
+    </div>
 
-    <body>
-
-        <div class="container">
-            <div class="header">
-                <h2 class="text-muted">Xabbix</h2>
-            </div>
-
-            <div class="monitoring">
-                <h3>Мониторинг</h3>
-                    <object type="image/svg+xml" data="C:\Users\User\PycharmProjects\xabbix\img\topology.svg" width="200" height="200" >
-                        Your browser does not support SVG
-                    </object>
-            </div>
-
-            <footer class="footer">
-                <p>&copy; Название компании</p>
-            </footer>
-
-        </div>
-    </body>
-</html>
+</div>
+{% endblock %}
