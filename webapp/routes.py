@@ -1,17 +1,10 @@
-import os
+from webapp.send_received_cmd_form import send_received_cmd
+from flask import current_app as app
+from flask import render_template
 import yaml
-from flask import Flask, render_template
-
-from send_received_cmd_form import send_received_cmd
-
-SECRET_KEY = os.urandom(32)
 
 with open("devices.yaml") as f:
     devices = yaml.safe_load(f)
-
-app = Flask(__name__)
-
-app.config['SECRET_KEY'] = SECRET_KEY
 
 
 # Делаем переход на главную страницу

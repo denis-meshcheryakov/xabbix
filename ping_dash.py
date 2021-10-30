@@ -7,25 +7,24 @@ import plotly.graph_objs as go
 import yaml
 
 
-
 app = dash.Dash(__name__)
 
-app.layout = html.Div([dcc.Graph(id = 'live-graph'),
+app.layout = html.Div([dcc.Graph(id='live-graph'),
                       dcc.Interval(
-                      id = 'graph-update',
-                      interval = 5*1000,
-                      n_intervals = 5),])
+                      id='graph-update',
+                      interval=5*1000,
+                      n_intervals=5)])
+
 
 @app.callback(
     Output('live-graph', 'figure'),
-    [ Input('graph-update', 'n_intervals') ])
-
+    [Input('graph-update', 'n_intervals')])
 def update_graph_scatter(n):
 
     with open('success_packet_perc.yaml') as f:
         p_dict = yaml.safe_load(f)
 
-    x_axis= []
+    x_axis = []
     y_axis = []
     for x, y in p_dict.items():
         x_axis.append(x)

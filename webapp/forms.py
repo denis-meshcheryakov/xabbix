@@ -10,8 +10,9 @@ class GetCommand(FlaskForm):
     Форма получения команды для отправки на роутер
     """
     command = StringField('Форма отправки команды на роутер',
-                               validators=[DataRequired()],
-                               render_kw={"class": "form-control","placeholder": "Введите команду"})
+                          validators=[DataRequired()],
+                          render_kw={"class": "form-control",
+                                     "placeholder": "Введите команду"})
     command_type = BooleanField('Config-mode', default=False)
-    submit= SubmitField('Send Command',
-                        render_kw={"class":"btn btn-secondary"})
+    submit = SubmitField('Send Command',
+                         render_kw={"class": "btn btn-secondary"})
