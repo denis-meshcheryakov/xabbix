@@ -24,7 +24,7 @@ def showLogin():
 @app.route('/monitoring')
 def showMonitoring():
     title = 'Monitoring'
-    return render_template('monitoring.html', page_title=title)
+    return app.redirect('/dash_app', page_title=title)
 
 
 # Страница роутера R1

@@ -8,7 +8,9 @@ import yaml
 
 
 def init_dash_app(server):
-    dash_app = dash.Dash(server=server)
+
+    dash_app = dash.Dash(__name__, server=server,
+                         url_base_pathname='/monitoring/')
 
     dash_app.layout = html.Div([dcc.Graph(id='live-graph'),
                                 dcc.Interval(

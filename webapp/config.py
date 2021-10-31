@@ -4,3 +4,6 @@ class DevConfig:
 
 class BaseConfig:
     DEBUG = False
+
+
+SECRET_KEY = 'kslknsbloiewboin'

@@ -4,22 +4,22 @@ from flask import Flask
 
 def init_app(test_config=None):
     """Creates flask app"""
-    app = Flask('markup_service')
+    server = Flask('markup_service')
     if test_config:
-        app.config.from_object('webapp.config.DevConfig')
+        server.config.from_object('webapp.config.DevConfig')
     else:
-        app.config.from_object('webapp.config.BaseConfig')
+        server.config.from_object('webapp.config.BaseConfig')
 
-    app.template_folder = os.path.abspath(
+    server.template_folder = os.path.abspath(
         r'C:\Users\User\PycharmProjects\xabbix\webapp\templates')
-    # SECRET_KEY = os.urandom(32)
-    app.config['SECRET_KEY'] = 'kslknsbloiewboin'
 
-    with app.app_context():
+    server.config.from_pyfile(r'webapp\\config.py')
+
+    with server.app_context():
         from webapp import routes
 
         from webapp.dashapp import init_dash_app
 
-        app = init_dash_app(app)
+        app = init_dash_app(server)
 
     return app
