@@ -1,32 +1,19 @@
-from dash import Dash
-from werkzeug.wsgi import DispatcherMiddleware
-import flask
-from werkzeug.serving import run_simple
-import dash_html_components as html
+import subprocess
+import re
+from pprint import pprint
 
 
-server = flask.Flask(__name__)
-dash_app1 = Dash(__name__, server = server, url_base_pathname='/dashboard' )
-dash_app2 = Dash(__name__, server = server, url_base_pathname='/reports')
-dash_app1.layout = html.Div([html.H1('Hi there, I am app1 for dashboards')])
-dash_app2.layout = html.Div([html.H1('Hi there, I am app2 for reports')])
-@server.route('/')
-@server.route('/hello')
-def hello():
-    return 'hello world!'
+ping = subprocess.run(['ping', '-i', '0.2', '-c', '100', '192.168.0.105'],
+                      stdout=subprocess.PIPE, encoding='utf-8')
+ping_result = str(ping.stdout)
+# pprint(ping_result)
+# ping_result = (r'/r/n').join(ping_result)
+# print(ping_result)
+#     return ping_result
+perc_of_loss = re.search(r'.+ (\d+)% packet loss,.*', ping_result).group(1)
+success_perc = str(100 - int(perc_of_loss)) + '%'
+# print(result)
+# perc_of_loss = int(perc_of_loss['sent']) * 100 / int(perc_of_loss['received'])
+print(success_perc)
 
-@server.route('/dashboard')
-def render_dashboard():
-    return flask.redirect('/dash1')
 
-
-@server.route('/reports')
-def render_reports():
-    return flask.redirect('/dash2')
-
-app = DispatcherMiddleware(server, {
-    '/dash1': dash_app1.server,
-    '/dash2': dash_app2.server
-})
-
-run_simple('0.0.0.0', 8080, app, use_reloader=True, use_debugger=True)

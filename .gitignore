@@ -110,6 +110,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.vscode/
+# linx-env/
 
 # Spyder project settings
 .spyderproject
@@ -131,3 +133,9 @@ dmypy.json
 
 test.py
 config.py
+back_up/
+test.yaml
+192.168.0.105_success_packet_perc.yaml
+192.168.0.108_success_packet_perc.yaml
+192.168.0.112_success_packet_perc.yaml
+devices.yaml
