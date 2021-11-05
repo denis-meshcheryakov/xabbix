@@ -11,10 +11,8 @@ def create_app(test_config=None):
         app.config.from_object('webapp.config.BaseConfig')
 
     app.config.from_object('webapp.config.BaseConfig')
-    app.template_folder = os.path.abspath(
-        r'C:\Users\User\PycharmProjects\xabbix\webapp\templates')
-
-    app.config.from_pyfile(r'config.py')
+    app.config.from_pyfile('config.py')
+    app.template_folder = app.config['TEMPLATE_FOLDER']
 
     with app.app_context():
         from webapp import routes

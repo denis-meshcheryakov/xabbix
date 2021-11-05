@@ -38,7 +38,7 @@ def init_callbacks(dash_app):
         for x, y in p_dict.items():
             x_axis.append(x)
             y_axis.append(y)
-        print(x_axis, y_axis)
+        # print(x_axis, y_axis)
         data = plotly.graph_objs.Scatter(
                 x=x_axis,
                 y=y_axis,
