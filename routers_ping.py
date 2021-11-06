@@ -20,11 +20,11 @@ def get_ping_rslt_dict(ip_addr):
     ping_result = str(ping.stdout)
     perc_of_loss = re.search(r'.+ (\d+)% packet loss,.*', ping_result).group(1)
     success_perc = str(100 - int(perc_of_loss)) + '%'
-    # print(ip_addr)
-    # print(success_perc)
+    print(ip_addr)
+    print(success_perc)
     to_yaml_file = {}
     dt_now = datetime.now().strftime('%d.%m.%Y %H:%M:%S')
-    # print(dt_now)
+    print(dt_now)
     to_yaml_file[dt_now] = success_perc
     with open(ip_addr + '_success_packet_perc.yaml', 'a') as f:
         yaml.dump(to_yaml_file, f, default_flow_style=False)
