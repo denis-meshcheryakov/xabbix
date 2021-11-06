@@ -9,8 +9,11 @@ import yaml
 
 def init_dash_app(server):
 
+    BS = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+
     dash_app = dash.Dash(__name__, server=server,
-                         url_base_pathname='/monitoring/')
+                         url_base_pathname='/monitoring/',
+                         external_stylesheets=[BS])
 
     dash_app.layout = html.Div(
         children=[
@@ -21,7 +24,7 @@ def init_dash_app(server):
                                 interval=5*1000,
                                 n_intervals=5), ]),
             html.H1(children='Роутер R2'),
-             html.Div([dcc.Graph(id='live-graph_R2'),
+            html.Div([dcc.Graph(id='live-graph_R2'),
                                 dcc.Interval(
                                 id='graph-update_R2',
                                 interval=5*1000,
@@ -55,7 +58,6 @@ def init_callbacks(dash_app):
         for x, y in p_dict.items():
             x_axis.append(x)
             y_axis.append(y)
-        # print(x_axis, y_axis)
         data = plotly.graph_objs.Scatter(
                 x=x_axis,
                 y=y_axis,
@@ -80,7 +82,6 @@ def init_callbacks(dash_app):
         for x, y in p_dict.items():
             x_axis.append(x)
             y_axis.append(y)
-        # print(x_axis, y_axis)
         data = plotly.graph_objs.Scatter(
                 x=x_axis,
                 y=y_axis,
@@ -105,7 +106,6 @@ def init_callbacks(dash_app):
         for x, y in p_dict.items():
             x_axis.append(x)
             y_axis.append(y)
-        # print(x_axis, y_axis)
         data = plotly.graph_objs.Scatter(
                 x=x_axis,
                 y=y_axis,
