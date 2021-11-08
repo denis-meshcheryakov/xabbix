@@ -18,6 +18,7 @@ def get_connect_dict(output):
         for i in value:
             if not (i['DEST_HOST'], i['REMOTE_PORT']) in connect_dict:
                 connect_dict[i['LOCAL_HOST'], i['LOCAL_PORT']] = (i['DEST_HOST'], i['REMOTE_PORT'])
+    draw_topology(connect_dict)
     return connect_dict 
 
 
@@ -27,4 +28,3 @@ if __name__ == '__main__':
     command = 'show cdp neighbors det'
     path_dir = f'{os.getcwd()}/templates'
     connect_dict = get_connect_dict(send_and_parse_command_parallel(devices, command, path_dir))
-    draw_topology(connect_dict)

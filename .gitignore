@@ -106,12 +106,14 @@ celerybeat.pid
 .venv
 .idea
 env/
+env-linx/
 venv/
 ENV/
 env.bak/
 venv.bak/
 .vscode/
-env-linx/
+linx-env/
+
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -138,4 +140,6 @@ test.yaml
 192.168.0.108_success_packet_perc.yaml
 192.168.0.112_success_packet_perc.yaml
 devices.yaml
+.webapp#*static
+webapp#005Cstatic
 wget*

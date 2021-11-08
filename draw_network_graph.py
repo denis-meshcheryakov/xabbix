@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-# Based on http://matthiaseisen.com/articles/graphviz/
 import sys
 
 
@@ -45,7 +43,7 @@ def apply_styles(graph, styles):
     return graph
 
 
-def draw_topology(topology_dict, out_filename="img/topology", style_dict=styles):
+def draw_topology(topology_dict, out_filename="webapp/static/topology", style_dict=styles):
     """
     topology_dict - словарь с описанием топологии
 
@@ -76,3 +74,4 @@ def draw_topology(topology_dict, out_filename="img/topology", style_dict=styles)
     graph = apply_styles(graph, style_dict)
     filename = graph.render(filename=out_filename)
     print("Topology saved in", filename)
+
