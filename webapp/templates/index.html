@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br>
 <div class="container">
     <div class="row">
 		<div class="col-md-9" >
-          -- <img src="C:\Users\User\PycharmProjects\xabbix\img\topology.svg" class="img-fluid">
-          <!-- <img src={{ url_for('static', filename='topology2.png') }}"> -->
+            <h1>Топология сети</h1>
+            <img src="{{url_for('static', filename='topology.svg')}}" width="700" height="600"/>
         </div>
         <div class="col-md-3">
+            <br><br><br><br>
             <h4>Оборудование:</h4>
                 <div class="d-grid gap-2">
                     <a type="button" href="/r1" class="btn btn-outline-success btn-lg btn-block" role="button">R1 model: Cisco 7201</a>
