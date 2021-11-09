@@ -132,6 +132,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+topology
+topology.svg
+celerybeat-schedule
 test.py
 config.py
 back_up/

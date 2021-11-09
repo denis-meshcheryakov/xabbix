@@ -19,19 +19,19 @@ def init_dash_app(server):
         children=[
             html.H1(children='Роутер R1'),
             html.Div([dcc.Graph(id='live-graph_R1'),
-                                dcc.Interval(
+                     dcc.Interval(
                                 id='graph-update_R1',
                                 interval=5*1000,
                                 n_intervals=5), ]),
             html.H1(children='Роутер R2'),
             html.Div([dcc.Graph(id='live-graph_R2'),
-                                dcc.Interval(
+                     dcc.Interval(
                                 id='graph-update_R2',
                                 interval=5*1000,
                                 n_intervals=5), ]),
-            html.H1(children='Роутер R3'),         
+            html.H1(children='Роутер R3'),
             html.Div([dcc.Graph(id='live-graph_R3'),
-                                dcc.Interval(
+                     dcc.Interval(
                                 id='graph-update_R3',
                                 interval=5*1000,
                                 n_intervals=5), ])
@@ -71,7 +71,7 @@ def init_callbacks(dash_app):
     @app.callback(
         Output('live-graph_R2', 'figure'),
         [Input('graph-update_R2', 'n_intervals')])
-        
+
     def update_graph_scatter(n):
 
         with open('192.168.0.108_success_packet_perc.yaml') as f:

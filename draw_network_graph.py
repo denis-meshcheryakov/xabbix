@@ -43,7 +43,8 @@ def apply_styles(graph, styles):
     return graph
 
 
-def draw_topology(topology_dict, out_filename="webapp/static/topology", style_dict=styles):
+def draw_topology(topology_dict, out_filename="webapp/static/topology",
+                  style_dict=styles):
     """
     topology_dict - словарь с описанием топологии
 
@@ -58,8 +59,8 @@ def draw_topology(topology_dict, out_filename="webapp/static/topology", style_di
     И записывает файл topology.svg в каталог img.
     """
     nodes = set(
-        [item[0] for item in list(topology_dict.keys()) + list(topology_dict.values())]
-    )
+        [item[0] for item in list(topology_dict.keys()) +
+         list(topology_dict.values())])
 
     graph = gv.Graph(format="svg")
 
@@ -69,9 +70,9 @@ def draw_topology(topology_dict, out_filename="webapp/static/topology", style_di
     for key, value in topology_dict.items():
         head, t_label = key
         tail, h_label = value
-        graph.edge(head, tail, headlabel=h_label, taillabel=t_label, label=" " * 12)
+        graph.edge(head, tail, headlabel=h_label, taillabel=t_label,
+                   label=" " * 12)
 
     graph = apply_styles(graph, style_dict)
     filename = graph.render(filename=out_filename)
     print("Topology saved in", filename)
-
