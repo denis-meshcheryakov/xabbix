@@ -14,14 +14,16 @@ def get_connect_dict(output):
     который необходим функции draw_topology.
 
     """
-    nei_dict = output
     connect_dict = {}
-    for key, value in nei_dict.items():
-        for i in value:
-            if not (i['DEST_HOST'], i['REMOTE_PORT']) in connect_dict:
-                connect_dict[i['LOCAL_HOST'],
-                             i['LOCAL_PORT']] = (i['DEST_HOST'],
-                                                 i['REMOTE_PORT'])
+    for key, value in output.items():
+        try:
+            for i in value:
+                if not (i['DEST_HOST'], i['REMOTE_PORT']) in connect_dict:
+                    connect_dict[i['LOCAL_HOST'],
+                                 i['LOCAL_PORT']] = (i['DEST_HOST'],
+                                                     i['REMOTE_PORT'])
+        except (TypeError) as error:
+            print(error)
     draw_topology(connect_dict)
     return connect_dict
 

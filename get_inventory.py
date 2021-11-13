@@ -15,6 +15,7 @@ def get_show_version_params(output):
             list_name = str(device)
             device = {}
             for key, value in list_item.items():
+                device['MANAGE_IP'] = list_name
                 if 'HOSTNAME' in key or 'UPTIME' in key:
                     device[key] = value
                 elif 'UPTIME' in key:

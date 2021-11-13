@@ -62,7 +62,7 @@ def init_callbacks(dash_app):
         return {'data': [data],
                 'layout': go.Layout(xaxis=dict(range=[min(x_axis),
                                     max(x_axis)]),
-                                    yaxis=dict(range=[0, 100]))}
+                                    yaxis=dict(range=[0, 110]))}
 
     @app.callback(
         Output('live-graph_R2', 'figure'),
@@ -104,4 +104,4 @@ def init_callbacks(dash_app):
         return {'data': [data],
                 'layout': go.Layout(xaxis=dict(range=[min(x_axis),
                                     max(x_axis)]),
-                                    yaxis=dict(range=[0, 100]))}
+                                    yaxis=dict(range=[0, 110]))}

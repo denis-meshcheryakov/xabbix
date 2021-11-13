@@ -1,6 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
-<br><br><br><br><br><br><br><br><br><br><br><br>
+<br>
+<div class="container">
+    <div class="row">
+		<div class="col-md-4">
+            <div class="card bg-light mb-3">
+                <div class="card-title"><h4>Inventory:</h4></div>
+                <div class="card-tex">
+                   <p>Manage IP: {{inventory.MANAGE_IP}}</p>
+                   <p>Uptime: {{inventory.UPTIME}}</p>
+                   <p>Serial: {{inventory.SERIAL}}</p>
+                   <p>Hardware: {{inventory.HARDWARE}}</p>
+                   <p>Version: {{inventory.VERSION}}</p>
+                   <p>Running image: {{inventory.RUNNING_IMAGE}}</p>
+                    </div>
+              </div>
+        </div>
+        <div class="col-md-8" >
+            <div class="card text-white bg-info mb-3">
+                <div class="card-title"><h4>Router log:</h4></div>
+                <div class="card-tex">
+                   <p><h4>Здесь могла бы быть выша реклама</h4></p>
+                   <p>Но будут логи с роутера</p>
+                   <p>Еще чуть-чуть нужно подождать</p>
+                   <p>Прям самую капельку</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="row">
 		<div class="col-md-6" ></div>

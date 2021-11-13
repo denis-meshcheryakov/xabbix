@@ -32,9 +32,9 @@ def send_and_parse_show_command(device_dict, command,
             parsed_data = parse_command_dynamic(
                 output, attributes, templ_path=template_path, index_file=index
             )
+        return parsed_data
     except (NetmikoTimeoutException, NetmikoAuthenticationException) as error:
         print(error)
-    return parsed_data
 
 
 def send_and_parse_command_parallel(devices, command, templates_path, limit=3):
