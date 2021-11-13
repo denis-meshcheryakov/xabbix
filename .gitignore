@@ -112,7 +112,7 @@ ENV/
 env.bak/
 venv.bak/
 .vscode/
-# linx-env/
+linx-env/
 
 # Spyder project settings
 .spyderproject
@@ -132,6 +132,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+topology
+topology.svg
+celerybeat-schedule
 test.py
 config.py
 back_up/
@@ -139,6 +142,10 @@ test.yaml
 192.168.0.105_success_packet_perc.yaml
 192.168.0.108_success_packet_perc.yaml
 192.168.0.112_success_packet_perc.yaml
+192.168.0.105_inventory.yaml
+192.168.0.108_inventory.yaml
+192.168.0.112_inventory.yaml
 devices.yaml
 .webapp#*static
 webapp#005Cstatic
+wget*
