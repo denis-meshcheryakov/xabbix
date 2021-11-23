@@ -27,6 +27,10 @@ def get_ping_rslt_dict(ip_addr):
 
 
 def get_ping_rslt_dict_call():
+    """
+    Функция осуществляет вызов функции get_ping_rslt_dict()
+    для всех устройств из файла devices.yaml
+    """
     with open("devices.yaml") as f:
         devices = yaml.safe_load(f)
     for device in devices:

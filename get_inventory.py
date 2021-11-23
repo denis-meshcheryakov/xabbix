@@ -36,6 +36,10 @@ def get_show_version_params(output):
 
 
 def get_show_version_params_call():
+    """
+    Функция осуществляет вызов функции get_show_version_params()
+    для всех устройств из файла devices.yaml
+    """
     full_pth = os.path.join(os.getcwd(), 'templates')
     command = 'show version'
     with open('devices.yaml') as f:
