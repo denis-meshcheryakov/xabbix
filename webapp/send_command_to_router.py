@@ -1,7 +1,8 @@
 """
-Функция принимает словарь с параметрами подключения к устройству, комманду и 
-флаг command_type. В зависимости от флага отправляет show или 
-config комманду на роутер и возвращает вывод роутера.
+Функция принимает словарь с параметрами подключения к устройству,
+комманду и флаг command_type. В зависимости от флага
+отправляет show или config комманду на роутер и
+возвращает вывод роутера.
 """
 
 from netmiko import (
@@ -10,12 +11,15 @@ from netmiko import (
     NetmikoAuthenticationException
 )
 
+
 def send_command(device, command, command_type):
     try:
         with ConnectHandler(**device) as ssh:
             ssh.enable()
+            device_name = ssh.find_prompt()
             if command_type is False:
                 output = ssh.send_command(command, strip_command=False)
+                output = device_name + output
             else:
                 output = ssh.send_config_set(command, strip_command=False)
         return output
